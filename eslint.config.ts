@@ -6,16 +6,9 @@ import pluginAstro from "eslint-plugin-astro";
 import pluginPrettier from "eslint-plugin-prettier/recommended";
 import { defineConfig } from "eslint/config";
 
-export default defineConfig([
-  {
-    files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-    plugins: { js },
-    extends: ["js/recommended"],
-    languageOptions: { globals: globals.browser },
-  },
-  pluginReact.configs.flat.recommended,
-  pluginAstro.configs.recommended,
-  pluginPrettier,
-  // @ts-expect-error 2322
+export default tseslint.config(
+  // pluginReact.configs.flat.recommended,
   ...tseslint.configs.recommended,
-]);
+  pluginPrettier,
+  pluginAstro.configs.recommended,
+);
