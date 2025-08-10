@@ -10,19 +10,22 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
       "@components/*": [
-        "components/*"
+        "src/components/*"
       ],
       "@layouts/*": [
-        "layouts/*"
+        "src/layouts/*"
       ],
       "@assets/*": [
-        "assets/*"
+        "src/assets/*"
       ],
       "@styles/*": [
-        "styles/*"
+        "src/styles/*"
+      ],
+      "@dishes/*": [
+        "src/dishes/*"
       ]
     }
   }
