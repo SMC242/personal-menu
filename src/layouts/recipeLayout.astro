@@ -1,5 +1,6 @@
 ---
 import "@styles/bookPageTransition.css";
+import "@styles/global.css";
 ---
 
 <html>
@@ -7,5 +8,9 @@ import "@styles/bookPageTransition.css";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
-  <body><article><slot /></article></body>
+  <body class="flex h-full w-full justify-center"
+    ><article class="m-5">
+      <slot />
+    </article>
+  </body>
 </html>
