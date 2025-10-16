@@ -23,16 +23,18 @@ function toTitleCase(camelCased: string): string {
 
 async function getAllDishes(): Promise<Record<string, DishMetadata>> {
   // Weird things going on with the path here
-  const dishNames = await readdir("./src/dishes");
+  const dishNames = (await readdir("./src/dishes")).map((name) =>
+    name.replace(".astro", ""),
+  );
   console.debug(dishNames);
   const components = await Promise.all(
     dishNames.map((name) =>
-      import(`../dishes/${name}`).then((module) => module.default),
+      import(`../dishes/${name}.astro`).then((module) => module.default),
     ),
   );
 
   return dishNames.reduce((obj, name, idx) => {
-    const slug = toKebabCase(name.replace(".astro", ""));
+    const slug = toKebabCase(name);
 
     return {
       ...obj,
