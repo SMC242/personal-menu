@@ -1,0 +1,19 @@
+---
+import type { GetStaticPaths } from "astro";
+import RecipeLayout from "@layouts/recipeLayout.astro";
+import { allDishes } from "src/utils/allDishes.ts";
+
+export const getStaticPaths = (async () => {
+  return Object.keys(allDishes).map((slug) => ({
+    params: {
+      slug,
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const { slug } = Astro.params;
+const DishComponent = allDishes[slug].component;
+console.debug(DishComponent);
+---
+
+<RecipeLayout><DishComponent /></RecipeLayout>
