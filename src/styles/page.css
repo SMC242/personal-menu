@@ -1,0 +1,45 @@
+.page {
+  inset: calc(var(--spacing * 1));
+  border-radius: var(--radius-xs);
+  border-width: 1px;
+  border-color: var(--color-amber-800);
+  background-color: var(--color-orange-50);
+}
+
+.page-content {
+  padding: 5px;
+}
+
+/* Based on https://stackoverflow.com/a/22461411 */
+/* Corner defaults to right. Use page page--corner-left for left corner */
+.page::after {
+  --corner-size: 1.5em;
+  --horizontal-offset: 97.2%;
+  /* Top and left border */
+  --corner-border: 1px 0px 0px 1px;
+  --corner-border-radius: var(--radius-lg) var(--radius-xs);
+  --corner-shadow: 2px 1.5px 2px;
+
+  inset: calc(var(--spacing * 1));
+  z-index: 10;
+  border-radius: var(--corner-border-radius);
+  border-width: 1px;
+  border-width: var(--corner-border);
+  border-color: var(--color-amber-800);
+  position: relative;
+  display: block;
+  top: 100%;
+  left: var(--horizontal-offset);
+  width: var(--corner-size);
+  box-shadow: var(--corner-shadow) var(--color-zinc-400) inset;
+  height: var(--corner-size);
+  content: "";
+}
+
+.page.page--corner-left::after {
+  --horizontal-offset: 0%;
+  /* Top and right border */
+  --corner-border: 1px 1px 0px 0px;
+  --corner-border-radius: var(--radius-xs) var(--radius-lg);
+  --corner-shadow: -2px 1.5px 2px;
+}
