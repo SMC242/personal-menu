@@ -1,11 +1,17 @@
 ---
 import Image from "astro/components/Image.astro";
 import chanaDalImage from "@assets/chana-dal.jpg";
+import Page from "@components/page.astro";
 ---
 
-<div>
-  <section>
-    <p>Chana dal is a split chickpea curry</p>
-    <Image src={chanaDalImage} alt="Image of chana dal" />
-  </section>
-</div>
+<Page>
+  <li slot="overview">Cuisine: North Indian</li>
+  <p slot="summary">Chana dal is a split chickpea curry</p>
+  <Image
+    slot="image"
+    src={chanaDalImage}
+    alt="Chana dal in a bowl"
+    width={400}
+    height={400}
+  />
+</Page>

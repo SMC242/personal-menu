@@ -2,16 +2,33 @@
 import Image from "astro/components/Image.astro";
 import choleImage from "@assets/chole.webp";
 import bhaturaImage from "@assets/bhatura.jpg";
+import Page from "@components/page.astro";
+import PageBlock from "@components/pageBlock.astro";
 ---
 
-<div>
-  <section>
-    <p>
-      Chole is a Punjabi dish where chickpeas are infused with dried gooseberry
-      (amla) with its own custom spice blend.
-    </p>
-    <Image src={choleImage} alt="Image of chole" />
-    <p>Often served with bhature, a type of leavened, fried bread.</p>
-    <Image src={bhaturaImage} alt="Image of a bhatura" />
-  </section>
-</div>
+<Page title="Chole">
+  <Fragment slot="overview"><li>Cuisine: North Indian</li></Fragment>
+  <Fragment slot="summary">
+    Chole is a Punjabi dish where chickpeas are infused with dried gooseberry
+    (amla) with its own custom spice blend.
+  </Fragment>
+  <Image
+    slot="image"
+    src={choleImage}
+    width={400}
+    height={400}
+    alt="Image of chole"
+  />
+  <PageBlock slot="extra">
+    <Fragment slot="text" class="max-w-prose text-center">
+      Often served with bhature, a type of leavened, fried bread.
+    </Fragment>
+    <Image
+      slot="image"
+      src={bhaturaImage}
+      width={400}
+      height={400}
+      alt="Image of a bhatura"
+    />
+  </PageBlock>
+</Page>
