@@ -12,7 +12,7 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { slug } = Astro.params;
-const DishComponent = allDishes[slug].component;
+const DishComponent = allDishes[slug].Component;
 console.debug(DishComponent);
 ---
 

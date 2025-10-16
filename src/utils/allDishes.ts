@@ -4,7 +4,7 @@ import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 export type DishMetadata = {
   slug: string;
   title: string;
-  component: AstroComponentFactory;
+  Component: AstroComponentFactory;
 };
 
 // From https://stackoverflow.com/a/67243723
@@ -39,7 +39,7 @@ async function getAllDishes(): Promise<Record<string, DishMetadata>> {
       [slug]: {
         slug: slug,
         title: toTitleCase(name),
-        component: components[idx],
+        Component: components[idx],
       },
     };
   }, {});
