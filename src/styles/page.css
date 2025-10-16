@@ -14,7 +14,7 @@
 /* Corner defaults to right. Use page page--corner-left for left corner */
 .page::after {
   --corner-size: 1.5em;
-  --horizontal-offset: 97.2%;
+  --horizontal-offset: 96%;
   /* Top and left border */
   --corner-border: 1px 0px 0px 1px;
   --corner-border-radius: var(--radius-lg) var(--radius-xs);
