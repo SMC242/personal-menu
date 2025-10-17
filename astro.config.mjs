@@ -11,5 +11,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: "https://SMC242.github.io",
-  base: "/sites/menu"
+  base: "/personal-manu"
 });
