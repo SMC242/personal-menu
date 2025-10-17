@@ -10,4 +10,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: "https://SMC242.github.io",
+  base: "/sites/menu"
 });
