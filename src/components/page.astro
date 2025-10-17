@@ -1,8 +1,5 @@
 ---
-import "@styles/page.css";
-import PageBlock from "@components/pageBlock.astro";
 
-const { title } = Astro.props;
 ---
 
 <style>
@@ -70,19 +67,5 @@ const { title } = Astro.props;
 </style>
 
 <div class="page page--corner-right page-gradient min-h-full md:min-h-11/12">
-  <div class="page-content">
-    <div class="flex flex-col items-center gap-5">
-      <h2 class="text-xl font-bold">{title}</h2>
-      <section class="flex flex-col items-center gap-1 text-center">
-        <ul class="text-left"><slot name="overview" /></ul>
-        <PageBlock>
-          <slot name="summary" slot="text" />
-          <slot name="image" slot="image" />
-        </PageBlock>
-      </section>
-      <section class="flex flex-col items-center">
-        <slot name="extra" />
-      </section>
-    </div>
-  </div>
+  <div class="page-content"><slot /></div>
 </div>

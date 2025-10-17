@@ -2,11 +2,11 @@
 import Image from "astro/components/Image.astro";
 import choleImage from "@assets/chole.webp";
 import bhaturaImage from "@assets/bhatura.jpg";
-import Page from "@components/page.astro";
+import RecipePage from "@components/recipePage.astro";
 import PageBlock from "@components/pageBlock.astro";
 ---
 
-<Page title="Chole">
+<RecipePage title="Chole">
   <Fragment slot="overview"><li>Cuisine: North Indian</li></Fragment>
   <Fragment slot="summary">
     Chole is a Punjabi dish where chickpeas are infused with dried gooseberry
@@ -31,4 +31,4 @@ import PageBlock from "@components/pageBlock.astro";
       alt="Image of a bhatura"
     />
   </PageBlock>
-</Page>
+</RecipePage>
