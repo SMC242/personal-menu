@@ -2,17 +2,25 @@
 import RecipeLayout from "@layouts/recipeLayout.astro";
 import "@styles/global.css";
 import { allDishes } from "src/utils/allDishes.ts";
+import ListItem from "@components/listItem.astro";
+import Page from "@components/page.astro";
 ---
 
 <RecipeLayout>
-  <h1>Recipe Book Index</h1>
-  {
-    Object.keys(allDishes).map((slug) => (
-      <li>
-        <a href={`${import.meta.env.BASE_URL}/dishes/${slug}`}>
-          {allDishes[slug].title}
-        </a>
-      </li>
-    ))
-  }
+  <Page>
+    <h1 class="my-2 text-center text-xl font-bold">Menu Index</h1>
+    <section class="flex flex-col items-center">
+      <ul>
+        {
+          Object.keys(allDishes).map((slug) => (
+            <ListItem class="list-inside list-['-_']">
+              <a href={`${import.meta.env.BASE_URL}/dishes/${slug}`}>
+                {allDishes[slug].title}
+              </a>
+            </ListItem>
+          ))
+        }
+      </ul>
+    </section>
+  </Page>
 </RecipeLayout>
