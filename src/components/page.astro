@@ -5,6 +5,70 @@ import PageBlock from "@components/pageBlock.astro";
 const { title } = Astro.props;
 ---
 
+<style>
+  .page {
+    border-radius: var(--radius-xs);
+    border-width: 1px;
+    border-color: var(--color-amber-800);
+    background-color: var(--color-orange-50);
+    position: relative;
+    box-shadow: 0px 0px 8px 1px var(--color-zinc-400);
+  }
+
+  .page-gradient {
+    background: radial-gradient(
+      circle at center,
+      var(--color-orange-50),
+      var(--color-orange-100)
+    );
+  }
+
+  .page-content {
+    padding: 5px;
+  }
+
+  /* Based on https://stackoverflow.com/a/22461411 */
+  /* Corner defaults to right. Use page page--corner-left for left corner */
+  .page::after {
+    --corner-size: 1.5em;
+
+    z-index: 10;
+    position: absolute;
+    display: block;
+    bottom: 0;
+    border-radius: 0.15rem var(--radius-xs);
+    border-width: 1px;
+    border-width: var(--corner-border);
+    border-color: var(--color-amber-800);
+    width: var(--corner-size);
+    box-shadow: var(--corner-shadow) var(--color-zinc-400) inset;
+    height: var(--corner-size);
+    content: "";
+  }
+
+  .page.page--corner-right::after {
+    /* Top and left border */
+    --corner-border: 1px 0px 0px 1px;
+    --corner-shadow: 2px 1.5px 2px;
+
+    right: 0;
+  }
+
+  @media (width <= 40rem) {
+    .page::after {
+      --corner-size: 1em;
+    }
+  }
+
+  .page.page--corner-left::after {
+    /* Top and right border */
+    --corner-border: 1px 1px 0px 0px;
+    --corner-shadow: -2px 1.5px 2px;
+
+    left: 0;
+  }
+</style>
+
 <div class="page page--corner-right page-gradient min-h-full md:min-h-11/12">
   <div class="page-content">
     <div class="flex flex-col items-center gap-5">
