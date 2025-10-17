@@ -1,0 +1,22 @@
+@view-transition {
+  navigation: auto;
+}
+
+@keyframes page-flip {
+  from {
+    transform: rotateY(-32deg);
+  }
+  to {
+    transform: rotateY(-140deg);
+  }
+}
+
+.page::after::view-transition-old(root) {
+  animation: page-flip 1s;
+}
+
+.page::after::view-transition-new(root) {
+  animation: page-flip 1s;
+  transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+  animation-direction: reverse;
+}
