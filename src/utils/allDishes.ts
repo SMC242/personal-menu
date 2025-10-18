@@ -1,10 +1,12 @@
 import { readdir } from "node:fs/promises";
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+import type { RecipeTags } from "@types/index.d.ts";
 
 export type DishMetadata = {
   slug: string;
   title: string;
   Component: AstroComponentFactory;
+  tags: RecipeTags;
 };
 
 // From https://stackoverflow.com/a/67243723
@@ -27,9 +29,17 @@ async function getAllDishes(): Promise<Record<string, DishMetadata>> {
     name.replace(".astro", ""),
   );
   console.debug(dishNames);
-  const components = await Promise.all(
+  const dishData: [AstroComponentFactory, RecipeTags][] = await Promise.all(
     dishNames.map((name) =>
-      import(`../dishes/${name}.astro`).then((module) => module.default),
+      import(`../dishes/${name}.astro`).then((module) => {
+        if (!("tags" in module))
+          throw Error(`Missing tags in dish ${name}.astro`);
+
+        return [
+          module.default as AstroComponentFactory,
+          module.tags as RecipeTags,
+        ] satisfies [AstroComponentFactory, RecipeTags];
+      }),
     ),
   );
 
@@ -41,7 +51,8 @@ async function getAllDishes(): Promise<Record<string, DishMetadata>> {
       [slug]: {
         slug: slug,
         title: toTitleCase(name),
-        Component: components[idx],
+        Component: dishData[idx][0],
+        tags: dishData[idx][1],
       },
     };
   }, {});

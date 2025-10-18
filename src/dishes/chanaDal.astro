@@ -2,6 +2,12 @@
 import Image from "astro/components/Image.astro";
 import chanaDalImage from "@assets/chana-dal.jpg";
 import RecipePage from "@components/recipePage.astro";
+import type { RecipeTags } from "@types/index.d.ts";
+
+export const tags: RecipeTags = {
+  cuisine: "North Indian",
+  spiciness: "Medium",
+};
 ---
 
 <RecipePage>

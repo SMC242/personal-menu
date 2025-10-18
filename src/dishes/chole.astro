@@ -4,6 +4,12 @@ import choleImage from "@assets/chole.webp";
 import bhaturaImage from "@assets/bhatura.jpg";
 import RecipePage from "@components/recipePage.astro";
 import PageBlock from "@components/pageBlock.astro";
+import type { RecipeTags } from "@types/index.d.ts";
+
+export const tags: RecipeTags = {
+  cuisine: "North Indian",
+  spiciness: "Medium",
+};
 ---
 
 <RecipePage title="Chole">
