@@ -1,22 +1,49 @@
 @view-transition {
   navigation: auto;
+  /* view-transition-name: page-corner; */
 }
 
-@keyframes page-flip {
+@keyframes page-corner-flip {
   from {
     transform: rotateY(-32deg);
   }
   to {
-    transform: rotateY(-140deg);
+
+    transform:  rotateY(-140deg), translate(-46vw, -96vh)  ;
   }
 }
 
-.page::after::view-transition-old(root) {
+::view-transition-old(page-corner) {
   animation: page-flip 1s;
 }
 
-.page::after::view-transition-new(root) {
-  animation: page-flip 1s;
-  transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
-  animation-direction: reverse;
+/* ::view-transition-new(page-corner) { */
+/*   animation: page-flip 1s; */
+  /* 
+/*   animation-direction: reverse; */
+/* } */
+
+@keyframes page-flip {
+  0% {
+    transform: rotate(0deg) rotateX(0deg) rotateY(0deg);
+    /* , rotateY(-32deg); */
+  }
+  
+  /* 10% { */
+  /*   transform: rotate(-32deg); */
+  /* } */
+  100% {
+    transform: rotateX(-30deg) rotateY(90deg)
+  }
 }
+
+::view-transition-old(page) {
+  animation: page-flip 1s;
+  /* animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); */
+  animation-timing-function: ease-in-out;
+  opacity: 100%;
+}
+
+/* ::view-transition-new(page) { */
+/*   animation: page-flip 1s; */
+/* } */

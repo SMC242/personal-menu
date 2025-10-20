@@ -5,6 +5,7 @@
   background-color: var(--color-orange-50);
   position: relative;
   box-shadow: 0px 0px 8px 1px var(--color-zinc-400);
+  view-transition-name: page;
 }
 
 .page-gradient {
@@ -36,6 +37,7 @@
   box-shadow: var(--corner-shadow) var(--color-zinc-400) inset;
   height: var(--corner-size);
   content: "";
+  view-transition-name: page-corner;
 }
 
 .page-corner--right::after {
