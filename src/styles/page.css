@@ -8,7 +8,11 @@
 }
 
 .page-gradient {
-  background: radial-gradient(circle at center, var(--color-orange-50), var(--color-orange-100))
+  background: radial-gradient(
+    circle at center,
+    var(--color-orange-50),
+    var(--color-orange-100)
+  );
 }
 
 .page-content {
@@ -17,7 +21,7 @@
 
 /* Based on https://stackoverflow.com/a/22461411 */
 /* Corner defaults to right. Use page page--corner-left for left corner */
-.page::after {
+.page-corner::after {
   --corner-size: 1.5em;
 
   z-index: 10;
@@ -34,7 +38,7 @@
   content: "";
 }
 
-.page.page--corner-right::after {
+.page-corner--right::after {
   /* Top and left border */
   --corner-border: 1px 0px 0px 1px;
   --corner-shadow: 2px 1.5px 2px;
@@ -48,7 +52,7 @@
   }
 }
 
-.page.page--corner-left::after {
+.page-corner--left::after {
   /* Top and right border */
   --corner-border: 1px 1px 0px 0px;
   --corner-shadow: -2px 1.5px 2px;
