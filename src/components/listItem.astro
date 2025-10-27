@@ -1,7 +1,0 @@
----
-const { classlist } = Astro.props;
----
-
-<li class:list={["list-inside", "list-['-_']", ...(classlist ?? [])]}>
-  <slot />
-</li>
