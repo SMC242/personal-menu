@@ -6,7 +6,7 @@ import useTagFilter, {
   makeFilters,
 } from "src/hooks/useTagFilter";
 import { useState } from "react";
-import FilterMenu from "./filters";
+import FilterMenu from "@components/filterMenu.tsx";
 
 export type DishListProps = {
   dishes: DishMetadata[];
