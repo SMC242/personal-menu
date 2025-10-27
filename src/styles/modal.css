@@ -1,0 +1,12 @@
+.modal-show {
+  transition: all 200ms ease-in-out;
+  z-index: 50;
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%, -50%);
+}
+
+.modal-hide {
+  transition: all 200ms ease-in-out;
+}
