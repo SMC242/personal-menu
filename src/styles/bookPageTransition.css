@@ -1,49 +1,58 @@
 @view-transition {
   navigation: auto;
-  /* view-transition-name: page-corner; */
+  /*
+  * Prevent the transition from blocking clicks
+  * See https://css-tricks.com/keeping-the-page-interactive-while-a-view-transition-is-running/
+  */
+  pointer-events: none;
 }
 
-@keyframes page-corner-flip {
-  from {
-    transform: rotateY(-32deg);
-  }
-  to {
-
-    transform:  rotateY(-140deg), translate(-46vw, -96vh)  ;
-  }
+/* Prevent fading through white during the page flip */
+:root {
+  view-transition-name: none;
 }
 
-::view-transition-old(page-corner) {
-  animation: page-flip 1s;
-}
-
-/* ::view-transition-new(page-corner) { */
-/*   animation: page-flip 1s; */
-  /* 
-/*   animation-direction: reverse; */
-/* } */
-
+/* Animates the back flipping horizontally from right to left */
 @keyframes page-flip {
   0% {
-    transform: rotate(0deg) rotateX(0deg) rotateY(0deg);
-    /* , rotateY(-32deg); */
+    /* The perspective makes it a lot more realistic */
+    transform: perspective(5000px) rotate(0deg) rotateX(0deg) rotateY(0deg);
+    opacity: 1;
   }
-  
-  /* 10% { */
-  /*   transform: rotate(-32deg); */
-  /* } */
+
+  80% {
+    opacity: 1;
+  }
+
   100% {
-    transform: rotateX(-30deg) rotateY(90deg)
+    transform: perspective(10000px) rotateY(-190deg) translateX(70%);
+    opacity: 1;
   }
 }
 
 ::view-transition-old(page) {
-  animation: page-flip 1s;
-  /* animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); */
+  animation: page-flip 1.5s;
   animation-timing-function: ease-in-out;
-  opacity: 100%;
+  perspective: 1000px;
+  isolation: isolate;
+  mix-blend-mode: normal;
 }
 
-/* ::view-transition-new(page) { */
-/*   animation: page-flip 1s; */
-/* } */
+/* 
+* Fading the new page in is necessary because the browser automatically fades
+* the two pages together, causing the colours to multiply and create a white glare
+*/
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+::view-transition-new(page) {
+  animation: fade-in 1.5s ease-in-out;
+  isolation: isolate;
+  mix-blend-mode: normal;
+}
