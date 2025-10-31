@@ -7,6 +7,7 @@ import useTagFilter, {
 } from "src/hooks/useTagFilter";
 import { useState } from "react";
 import FilterMenu from "@components/filterMenu.tsx";
+import Link from "@components/link.tsx";
 
 export type DishListProps = {
   dishes: DishMetadata[];
@@ -29,7 +30,7 @@ function DishList({ dishes }: DishListProps) {
       <ul className="col-start-2 row-start-1 justify-self-center text-left">
         {filteredDishes.map((dish) => (
           <ListItem key={dish.slug}>
-            <a href={astroUrl(`dishes/${dish.slug}`)}>{dish.title}</a>
+            <Link href={`dishes/${dish.slug}`}>{dish.title}</Link>
           </ListItem>
         ))}
       </ul>
