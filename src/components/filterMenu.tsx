@@ -3,6 +3,7 @@ import type { FilterKey, Filters } from "src/hooks/useTagFilter";
 import "@styles/modal.css";
 import Bookmark from "@components/bookmark.tsx";
 import { FilterIcon, FunnelX } from "lucide-react";
+import Checkbox from "@components/checkbox.tsx";
 
 export type FilterMenuProps = {
   filters: Filters;
@@ -25,22 +26,10 @@ function FilterOption({
 }: FilterOptionProps) {
   return (
     <li role="menuitem" className="list-none" onMouseUp={toggleFilter}>
-      <input
-        type="checkbox"
-        // For accessibility
-        aria-disabled
-        role="menuitemcheckbox"
-        // To make React happy. See https://react.dev/reference/react-dom/components/input#my-text-input-doesnt-update-when-i-type-into-it
-        readOnly
-        // TODO: make the checkboxes prettier https://marek-rozmus.medium.com/styling-checkbox-with-tailwind-46a92c157e2d
-        className="pointer-events-none h-3 w-3 appearance-none rounded-sm border border-orange-50 bg-gray-100"
-        id={id}
-        checked={isEnabled}
-      />
-      <label className="cursor-pointer" htmlFor={id}>
+      <Checkbox controlled role="menuitemcheckbox" id={id} checked={isEnabled}>
         {" "}
         {filterName}
-      </label>
+      </Checkbox>
     </li>
   );
 }
@@ -64,7 +53,7 @@ function MenuContents({
         return (
           <details key={`group-${tagName}`}>
             <summary>{tagName}</summary>
-            <fieldset className="ml-3">
+            <fieldset className="ml-4 grid grid-flow-row grid-cols-2 gap-2 md:grid-cols-3">
               <legend className="sr-only">{tagName}</legend>
 
               {Object.keys(filters[castedTagName]).map((filterName) => {
@@ -97,7 +86,7 @@ function FilterMenu({ filters, setFilters, className }: FilterMenuProps) {
 
   const modalStyles =
     showModal &&
-    "z-50 fixed left-1/3 -translate-x-1/3 h-6/8 m-5 w-2/3 shadow-lg md:top-1/5 md:left-1/2 md:h-3/4 md:w-1/3 md:-translate-x-1/2";
+    "z-50 fixed left-1/3 -translate-x-1/3 h-6/8 m-5 w-7/8 shadow-lg md:top-1/5 md:left-1/2 md:h-3/4 md:w-1/3 md:max-w-1/ overflow-hidden md:-translate-x-1/2";
 
   const toggleModal = () => setShowModal(!showModal);
   const toggleFilter = <K extends keyof Filters>(
