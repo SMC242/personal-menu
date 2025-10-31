@@ -1,46 +1,16 @@
-# Astro Starter Kit: Basics
+# personal-menu
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+This is a skeuomorphic recipe book that I made for my partner using React, Astro, TailwindCSS, and TypeScript. The codebase is not the best but it was a great CSS challenge and I learned a lot from it. Additionally, it was exciting to work with the new [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API) now that Firefox has finally added support for it.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+# Features
 
-## 🚀 Project Structure
+- Skeuomorphic design and animations
+- Filtering recipes by tags
+- The use of Astro makes composing new entries simple, with very little boilerplate
 
-Inside of your Astro project, you'll see the following folders and files:
+## Planned updates
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Recipe name search
+2. A little dancing elephant that will follow your cursor when clicked
+3. Further optimisation for low-connectivity
+4. A print mode to enable printing off all pages
