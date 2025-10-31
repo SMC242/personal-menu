@@ -82,7 +82,7 @@ function MenuContents({
 }
 
 function FilterMenu({ filters, setFilters, className }: FilterMenuProps) {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const modalStyles =
     showModal &&
