@@ -13,6 +13,7 @@
 
   border-top-width: 2px;
   border-color: var(--color-amber-700);
+  /* Based on https://codepen.io/elad2412/pen/PwWjLL */
   border-radius: 400% / 40px 10px 0 0;
   transform: rotate(2deg);
 }
