@@ -9,9 +9,10 @@
   height: 100%;
   width: 100%;
   /* For a bit of space between the link and the line */
-  top: calc(var(--spacing) * 0.5);
+  top: 90%;
 
-  border-bottom-width: 2px;
+  border-top-width: 2px;
   border-color: var(--color-amber-700);
-  border-radius: 100% / 100px 200px 0 0;
+  border-radius: 400% / 40px 10px 0 0;
+  transform: rotate(2deg);
 }
