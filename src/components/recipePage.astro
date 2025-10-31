@@ -1,11 +1,22 @@
 ---
 import PageBlock from "@components/pageBlock.astro";
 import Page from "@components/page.astro";
+import { ArrowUp } from "lucide-react";
+import { astroUrl } from "src/utils/astro";
 
 const { title } = Astro.props;
 ---
 
 <Page>
+  <!-- This is a hack. It should be in RecipeLayout -->
+  <a href={astroUrl("/")}>
+    <ArrowUp
+      color="black"
+      size={32}
+      strokeWidth="0.7px"
+      className="rounded-sm border border-amber-800 bg-orange-100 shadow-sm shadow-gray-800"
+    />
+  </a>
   <div class="flex flex-col items-center gap-5">
     <h2 class="text-xl font-bold">{title}</h2>
     <section class="flex flex-col items-center gap-1 text-center">
