@@ -21,7 +21,7 @@ export default function Bookmark({
 }: BookmarkProps) {
   return (
     <div
-      className={`${classFromVariant(variant)} bookmark-gradient min-w-max ${className ?? ""}`}
+      className={`${classFromVariant(variant)} bookmark-gradient ${className ?? ""}`}
     >
       {children}
     </div>
