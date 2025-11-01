@@ -21,4 +21,9 @@ const { tags } = Astro.props;
     Heat:
     <Spiciness spiciness={tags.spiciness} size="xl" />
   </li>
+  <li
+    class="rounded-md border border-amber-800 p-0.5 shadow-xs shadow-gray-800"
+  >
+    Dish Type: {tags.dishType}
+  </li>
 </ul>

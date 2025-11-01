@@ -10,6 +10,7 @@ import Tags from "@components/tags.astro";
 export const tags: RecipeTags = {
   cuisine: "North Indian",
   spiciness: "Medium",
+  dishType: "Main",
 };
 ---
 
@@ -27,7 +28,7 @@ export const tags: RecipeTags = {
     alt="Image of chole"
   />
   <PageBlock slot="extra">
-    <Fragment slot="text" class="max-w-prose text-center">
+    <Fragment slot="text">
       Often served with bhature, a type of leavened, fried bread.
     </Fragment>
     <Image
