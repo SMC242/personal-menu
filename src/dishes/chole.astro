@@ -6,6 +6,7 @@ import RecipePage from "@components/recipePage.astro";
 import PageBlock from "@components/pageBlock.astro";
 import type { RecipeTags } from "@types/index.d.ts";
 import Tags from "@components/tags.astro";
+import AttributedImage from "@components/attributedImage.astro";
 
 export const tags: RecipeTags = {
   cuisine: "North Indian",
@@ -20,8 +21,9 @@ export const tags: RecipeTags = {
     Chole is a Punjabi dish where chickpeas are infused with dried gooseberry
     (amla) with its own custom spice blend.
   </Fragment>
-  <Image
+  <AttributedImage
     slot="image"
+    attribution="Image credit: https://www.indianhealthyrecipes.com/"
     src={choleImage}
     width={400}
     height={400}
@@ -31,8 +33,9 @@ export const tags: RecipeTags = {
     <Fragment slot="text">
       Often served with bhature, a type of leavened, fried bread.
     </Fragment>
-    <Image
+    <AttributedImage
       slot="image"
+      attribution="Image credit: https://rakskitchen.net/"
       src={bhaturaImage}
       width={400}
       height={400}
