@@ -4,6 +4,7 @@ import "@styles/modal.css";
 import Bookmark from "@components/bookmark.tsx";
 import { FilterIcon, FunnelX } from "lucide-react";
 import Checkbox from "@components/checkbox.tsx";
+import { toTitleCase } from "src/utils/casing";
 
 export type FilterMenuProps = {
   filters: Filters;
@@ -52,7 +53,7 @@ function MenuContents({
 
         return (
           <details key={`group-${tagName}`}>
-            <summary>{tagName}</summary>
+            <summary>{toTitleCase(tagName)}</summary>
             <fieldset className="ml-4 grid grid-flow-row grid-cols-2 gap-2 md:grid-cols-3">
               <legend className="sr-only">{tagName}</legend>
 
