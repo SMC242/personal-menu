@@ -10,7 +10,7 @@ import { allDishes } from "src/utils/allDishes";
   <Page>
     <h1 class="my-2 text-center text-xl font-bold">Menu Index</h1>
     <section>
-      <DishList client:load dishes={Object.values(allDishes)} />
+      <DishList client:load dishes={Object.values(allDishes).toSorted()} />
     </section>
   </Page></RecipeLayout
 >
