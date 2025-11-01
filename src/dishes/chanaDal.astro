@@ -3,6 +3,7 @@ import Image from "astro/components/Image.astro";
 import chanaDalImage from "@assets/chana-dal.jpg";
 import RecipePage from "@components/recipePage.astro";
 import type { RecipeTags } from "@types/index.d.ts";
+import Tags from "@components/tags.astro";
 
 export const tags: RecipeTags = {
   cuisine: "North Indian",
@@ -11,7 +12,7 @@ export const tags: RecipeTags = {
 ---
 
 <RecipePage>
-  <li slot="overview">Cuisine: North Indian</li>
+  <li slot="overview"><Tags tags={tags} /></li>
   <p slot="summary">Chana dal is a split chickpea curry</p>
   <Image
     slot="image"
