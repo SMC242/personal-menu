@@ -18,12 +18,26 @@ export function makeFilters(): Filters {
   return {
     cuisine: {
       "North Indian": true,
+      "South Indian": true,
+      Chinese: true,
+      Italian: true,
+      Parsi: true,
+      British: true,
+      Japanese: true,
     },
     spiciness: {
       "Not spicy": true,
       Mild: true,
       Medium: true,
       Hot: true,
+    },
+    dishType: {
+      Main: true,
+      Side: true,
+      Carbs: true,
+      Drink: true,
+      Dessert: true,
+      Breakfast: true,
     },
   };
 }
