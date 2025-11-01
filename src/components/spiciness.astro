@@ -1,0 +1,35 @@
+---
+import { type Spiciness } from "@types/index.d.ts";
+import Chilli from "@components/icons/chilli.astro";
+import { type ElementSize, sizeToClasses } from "src/utils/tailwind.ts";
+
+interface Props {
+  spiciness: Spiciness;
+  size?: ElementSize;
+}
+
+const { spiciness, size = "sm" } = Astro.props;
+---
+
+{spiciness === "Not spicy" && <span class="inline-block">Not spicy </span>}
+{
+  spiciness === "Mild" && (
+    <span>
+      Mild <Chilli count={1} class={`${sizeToClasses(size)}`} />
+    </span>
+  )
+}
+{
+  spiciness === "Medium" && (
+    <Fragment>
+      Medium <Chilli count={2} class={`${sizeToClasses(size)} `} />
+    </Fragment>
+  )
+}
+{
+  spiciness === "Hot" && (
+    <span>
+      Hot <Chilli count={3} class={`${sizeToClasses(size)} `} />
+    </span>
+  )
+}
