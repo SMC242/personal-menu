@@ -1,0 +1,30 @@
+---
+import AttributedImage from "@components/attributedImage.astro";
+import eggFriedRiceImage from "@assets/egg-fried-rice.webp";
+import RecipePage from "@components/recipePage.astro";
+import type { RecipeTags } from "@types/index.d.ts";
+import Tags from "@components/tags.astro";
+
+export const tags: RecipeTags = {
+  cuisine: "Chinese",
+  spiciness: "Medium",
+  dishType: "Main",
+};
+---
+
+<RecipePage title="Egg-fried Rice">
+  <Fragment slot="overview"><Tags tags={tags} /></Fragment>
+  <Fragment slot="summary">
+    Egg-fried Rice is a rice dish where leftover rice is fried with scrambled
+    eggs and flavoured with soy sauce. Various extra vegetables can be added to
+    it for extra nutrition, such as mushrooms, bell peppers, peas, and carrots.
+  </Fragment>
+  <AttributedImage
+    slot="image"
+    attribution="Image credit: https://www.cookerru.com/"
+    src={eggFriedRiceImage}
+    width={400}
+    height={400}
+    alt="Image of egg-fried rice"
+  />
+</RecipePage>
