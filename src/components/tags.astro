@@ -1,0 +1,24 @@
+---
+import { type RecipeTags } from "@types/index";
+import Spiciness from "@components/spiciness.astro";
+
+interface Props {
+  tags: RecipeTags;
+}
+
+const { tags } = Astro.props;
+---
+
+<ul class="flex flex-wrap items-center gap-2 divide-amber-800">
+  <li
+    class="rounded-md border border-amber-800 p-0.5 shadow-xs shadow-gray-800"
+  >
+    Cuisine: {tags.cuisine}
+  </li>
+  <li
+    class="w-min-max flex overflow-visible rounded-md border border-amber-800 p-0.5 shadow-xs shadow-gray-800"
+  >
+    Heat:
+    <Spiciness spiciness={tags.spiciness} size="xl" />
+  </li>
+</ul>
