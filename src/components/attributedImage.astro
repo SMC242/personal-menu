@@ -1,0 +1,14 @@
+---
+import { Image, type LocalImageProps } from "astro:assets";
+
+type Props = {
+  attribution: string;
+} & LocalImageProps;
+
+const { attribution, ...props } = Astro.props;
+---
+
+<div>
+  <Image {...props} />
+  <span class="text-center text-xs text-gray-800">{attribution}</span>
+</div>
