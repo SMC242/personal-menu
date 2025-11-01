@@ -11,5 +11,9 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: "https://SMC242.github.io",
-  base: "/personal-menu"
+  base: "/personal-menu",
+  // See https://docs.astro.build/en/guides/images/#responsive-image-behavior
+  image: {
+    responsiveStyles: true,
+  },
 });
