@@ -1,6 +1,7 @@
 import { readdir } from "node:fs/promises";
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import type { RecipeTags } from "@types/index.d.ts";
+import { toKebabCase, toTitleCase } from "src/utils/casing.ts";
 
 export type DishMetadata = {
   slug: string;
@@ -8,20 +9,6 @@ export type DishMetadata = {
   Component: AstroComponentFactory;
   tags: RecipeTags;
 };
-
-// From https://stackoverflow.com/a/67243723
-function toKebabCase(camelCased: string): string {
-  return camelCased.replace(
-    /[A-Z]+(?![a-z])|[A-Z]/g,
-    ($, ofs) => (ofs ? "-" : "") + $.toLowerCase(),
-  );
-}
-
-// From https://stackoverflow.com/a/7225450
-function toTitleCase(camelCased: string): string {
-  const result = camelCased.replace(/([A-Z])/g, " $1");
-  return result.charAt(0).toUpperCase() + result.slice(1);
-}
 
 async function getAllDishes(): Promise<Record<string, DishMetadata>> {
   // Weird things going on with the path here
