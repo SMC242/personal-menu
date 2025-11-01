@@ -11,7 +11,7 @@ interface Props {
 const { spiciness, size = "sm" } = Astro.props;
 ---
 
-{spiciness === "Not spicy" && <span class="inline-block">Not spicy </span>}
+{spiciness === "Not spicy" && <span class="ml-1"> Not spicy</span>}
 {
   spiciness === "Mild" && (
     <span>
