@@ -1,26 +1,12 @@
 import { type InputHTMLAttributes, type PropsWithChildren } from "react";
 import CheckIcon from "@components/icons/check.tsx";
+import { type ElementSize, sizeToClasses } from "src/utils/tailwind";
 
 export type CheckboxProps = PropsWithChildren<{
   controlled?: boolean;
-  elementSize?: "sm" | "md" | "lg" | "xl";
+  elementSize?: ElementSize;
 }> &
   InputHTMLAttributes<HTMLInputElement>;
-
-function sizeToClasses(
-  size: Exclude<CheckboxProps["elementSize"], undefined>,
-): string {
-  switch (size) {
-    case "sm":
-      return "h-2 w-2";
-    case "md":
-      return "h-3 w-3";
-    case "lg":
-      return "h-4 w-4";
-    case "xl":
-      return "h-8 w-8";
-  }
-}
 
 export default function Checkbox({
   children,
