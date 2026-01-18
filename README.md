@@ -5,6 +5,7 @@ This is a skeuomorphic recipe book that I made for my partner using React, Astro
 # Features
 
 - Skeuomorphic design and animations
+- Mobile-first design
 - Filtering recipes by tags
 - The use of Astro makes composing new entries simple, with very little boilerplate
 
